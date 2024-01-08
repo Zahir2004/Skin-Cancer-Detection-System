@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Detection Website</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- swiper css link  -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- custom css file link  -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+
+<body>
+    {% block content %}
+    <header class="header">
+
+        <a href="#" class="logo"> <i class="fas fa-tooth"></i> Team Paddlers </a>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#services">services</a>
+            <a href="#team">team</a>
+            <a href="#pricing">pricing</a>
+            <a href="#blog">blog</a>
+        </nav>
+
+        <button class="btn" id="btn1">make appointment</button>
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+    </header>
+
+    <!-- header end -->
+
+    <!-- home -->
+
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>Team Paddlers</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti, dolores. Ad rerum eum assumenda
+                mollitia autem quo nulla, consequatur quisquam est? Dolorem fugiat fugit amet dolores provident velit
+                eos est.</p>
+            <button class="btn" id="btn2">make appointment</button>
+        </div>
+
+
+    </section>
+
+    <!-- home end -->
+    <!-- Input popUP -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Personal Information</h2>
+            <form id="info-form" action="/predict" method="POST" enctype="multipart/form-data">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="input-field" required>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" class="input-field" required><br><br>
+                <label>Gender:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="male" required>
+                        Male
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="female" required>
+                        Female
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="other" required>
+                        Other
+                    </label>
+                </div><br>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" class="input-field" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="input-field" required>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" class="input-field" required>
+                <label for="image">Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" class="input-field" required>
+                <button type="submit" class="submit-button" id="submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="prediction-result">
+        < <p>{{ message }}</p>
+
+    </div>
+
+    <!-- Output Popup -->
+    <div id="popup1" class="popup1">
+        <div class="popup-content1">
+            <span class="close1">&times;</span>
+            <h2>Result Information</h2>
+            <br><br>
+            <label for="name">Name: </label>
+            <h3></h3>
+            <br><br>
+            <label for="age">Age: </label>
+            <h3></h3>
+            <br><br>
+            <label>Gender: </label>
+            <h3></h3>
+            <br><br>
+            <label for="email">Email:</label>
+            <h3></h3>
+            <br><br>
+            <label for="location">Location</label>
+            <h3></h3>
+            <br><br>
+            <label type="text">Test Result: </label>
+            <h3> {{message}} </h3><br>
+            <button type="submit1" class="submit-button1" id="submit-button1">Exit</button>
+        </div>
+    </div>
+    <!-- about us section-->
+
+    <section class="about" id="about">
+
+        <h1 class="heading"> about us </h1>
+
+        <div class="row">
+
+            <div class="image">
+                <img src="/static/images/hospital.jpeg.jpg" alt="">
+            </div>
+
+            <div class="content">
+                <h3>our clinic is made for the best among best treatment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate inventore explicabo recusandae
+                    cumque dolor voluptas nihil.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate inventore explicabo recusandae
+                    cumque dolor voluptas nihil.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- about end -->
+
+
+    <!-- services -->
+
+    <section class="services" id="services">
+
+        <h1 class="heading"> our services</h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <img src="/static/images/blog-3.jpg" alt="">
+                <h3>online schedule</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis in excepturi.</p>
+            </div>
+
+            <div class="box">
+                <img src="images/services-2.webp" alt="">
+                <h3>cosmetic feeling</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis in excepturi.</p>
+            </div>
+
+            <div class="box">
+                <img src="images/services-3.webp" alt="">
+                <h3>oral hygiene experts</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis in excepturi.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- services end-->
+
+    <!-- team section -->
+
+    <section class="team" id="team">
+
+        <h1 class="heading"> our team</h1>
+
+        <div class="swiper team-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="images/team-1.jpg" alt="">
+                        <div class="share">
+                            <a href="#" class="fab fa-facebook-f"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>john lacy</h3>
+                        <span>genral surgeon</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="images/team-2.jpg" alt="">
+                        <div class="share">
+                            <a href="#" class="fab fa-facebook-f"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>john lacy</h3>
+                        <span>genral surgeon</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="images/team-3.jpg" alt="">
+                        <div class="share">
+                            <a href="#" class="fab fa-facebook-f"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>john lacy</h3>
+                        <span>genral surgeon</span>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <img src="images/team-4.jpg" alt="">
+                        <div class="share">
+                            <a href="#" class="fab fa-facebook-f"></a>
+                            <a href="#" class="fab fa-twitter"></a>
+                            <a href="#" class="fab fa-instagram"></a>
+                            <a href="#" class="fab fa-linkedin"></a>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>john lacy</h3>
+                        <span>genral surgeon</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- team section ends -->
+
+
+    <!-- blog -->
+
+    <section class="blog" id="blog">
+
+        <h1 class="heading">our blogs</h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/blog-1.jpg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="link">Diease</a>
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 04th september, 2022 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin</a>
+                    </div>
+                    <h3>the most common problems?</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At cum atque sed veniam sunt, maxime
+                        natus excepturi maiores voluptatum.</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/blog-2.jpg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="link">Diease</a>
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 04th september, 2022 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin</a>
+                    </div>
+                    <h3>the most common problems?</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At cum atque sed veniam sunt, maxime
+                        natus excepturi maiores voluptatum.</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="/static/images/blog-3.jpg" alt="">
+                </div>
+                <div class="content">
+                    <a href="#" class="link">Diease</a>
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"></i> 04th september, 2022 </a>
+                        <a href="#"> <i class="fas fa-user"></i> by admin</a>
+                    </div>
+                    <h3>the most common problems?</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At cum atque sed veniam sunt, maxime
+                        natus excepturi maiores voluptatum.</p>
+                    <a href="#" class="btn">read more</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- blog ends -->
+
+    <!-- contact -->
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading">make appointment</h1>
+
+        <form action="">
+
+            <span>your name :</span>
+            <div class="inputBox">
+                <input type="text" placeholder="first name">
+                <input type="text" placeholder="last name">
+            </div>
+
+            <span>your email :</span>
+            <input type="email" placeholder="enter your email" class="box">
+
+            <span>your number :</span>
+            <input type="number" placeholder="enter your number" class="box">
+
+            <span>appointment date :</span>
+            <input type="datetime-local" class="box">
+
+            <input type="submit" value="order now" class="btn">
+
+        </form>
+
+    </section>
+
+    <!-- contact ends-->
+
+    <!-- footer -->
+
+    <section class="footer">
+
+        <div class="credit">created by <span>Team Paddlers</span> | all rights reserved!</div>
+
+    </section>
+
+    <!-- footer ends -->
+    <!-- swiper js link  -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- custom js file link  -->
+    <!-- <script src="script.js"></script> -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    {% endblock %}
+</body>
+
+</html>

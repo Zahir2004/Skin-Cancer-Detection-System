@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- swiper css link  -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+
+</head>
+
+<body>
+    <header class="header">
+
+        <a href="/" class="logo"> <i class="fas fa-tooth"></i> Team Paddlers </a>
+        <nav class="navbar">
+            <a href="/">home</a>
+            <a href="#about">about</a>
+            <a href="#services">services</a>
+            <a href="#team">team</a>
+            <a href="#pricing">pricing</a>
+            <a href="#blog">blog</a>
+        </nav>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+    </header>
+    <div id="popup1" class="popup1">
+        <div class="popup-content1">
+            <a href="/"><span class="close1">&times;</span></a>
+            <h2>Result Information</h2>
+            <br><br>
+            <label for="name">Name: {{data['name']}} </label>
+            <br><br>
+            <label for="age">Age: {{data['age']}} </label>
+            <br><br>
+            <label>Gender: {{data['gender']}}</label>
+            <br><br>
+            <label for="email">Email: {{data['email']}}</label>
+            <br><br>
+            <label for="location">Location: {{data['location']}} </label>
+            <br><br>
+            <label type="text">Test Result: {{message}} {% if message == 1%} Positive { % else %} Negative {% endif %}
+            </label><br>
+            <a href="/"><button type="button" class="submit-button1" id="submit-button1">Exit</button></a>
+        </div>
+    </div>
+</body>
+
+</html>
